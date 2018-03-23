@@ -46,9 +46,9 @@ FileTree jacocoClassDirectories(Set subprojects) {
 }
 
 task jacocoTestReport(type: JacocoReport,
-        dependsOn: [":data:testDebugUnitTest", ":data:createDebugCoverageReport",
+        dependsOn: [":data:testDebugUnitTest",
                     ":domain:test",
-                    ":presentation:testDebugUnitTest", ":presentation:createDebugCoverageReport"]) {
+                    ":presentation:testDebugUnitTest"]) {
     group = 'Reporting'
     description = 'Generate JaCoCo coverage reports'
 
