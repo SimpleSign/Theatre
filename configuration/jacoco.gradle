@@ -36,11 +36,8 @@ FileTree jacocoClassDirectories(Set subprojects) {
     ]
     def classDirectories = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug", exclude: excludes)
     subprojects.each { project ->
-        if (project.pluginManager.hasPlugin('java-library')) {
-            classDirectories += fileTree(dir: "$project.buildDir/classes/kotlin/main", exclude: excludes)
-        } else {
-            classDirectories += fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", exclude: excludes)
-        }
+        classDirectories += fileTree(dir: "$project.buildDir/classes/kotlin/main", exclude: excludes)
+        classDirectories += fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", exclude: excludes)
     }
     return classDirectories
 }
