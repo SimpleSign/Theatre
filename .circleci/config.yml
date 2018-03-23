@@ -166,6 +166,9 @@ jobs:
       - store_artifacts:
           path: firebase/
           destination: /firebase/
+      - store_test_artifacts:
+          path: firebase/
+          destination: /test-results/
 
   ## Submit JaCoCo coverage report
 
@@ -189,8 +192,11 @@ jobs:
           name: Upload coverage report to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
       - store_artifacts:
-          path: presentation/build/reports/
+          path: /build/reports/coverage/
           destination: /reports/
+      - store_test_artifacts:
+          path: /build/reports/coverage/
+          destination: /test-results/
 
 workflows:
   version: 2
